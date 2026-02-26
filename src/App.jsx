@@ -9,7 +9,7 @@ import Navbar from "./components/layout/Navbar"
 
 function App() {
   return (
-    <div className="bg-white text-black dark:bg-slate-950 dark:text-white min-h-screen">
+    <div className="min-h-screen bg-yellow-300 dark:bg-purple-900 transition-colors duration-300">
       <Navbar />
       {/* <Hero />
       <Services />

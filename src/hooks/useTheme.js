@@ -1,23 +1,25 @@
 import { useEffect, useState } from "react"
 
 export default function useTheme() {
-    const [theme, setTheme] = useState(
-        localStorage.getItem("theme") || "dark"
-    )
+  const [theme, setTheme] = useState(() => {
+    return localStorage.getItem("theme") || "dark"
+  })
 
-    useEffect(() => {
-        if (theme === "dark") {
-            document.documentElement.classList.add("dark")
-        } else {
-            document.documentElement.classList.remove("dark")
-        }
+  useEffect(() => {
+    const root = document.documentElement
 
-        localStorage.setItem("theme", theme)
-    }, [theme])
-
-    const toggleTheme = () => {
-        setTheme(prev => (prev === "dark" ? "light" : "dark"))
+    if (theme === "dark") {
+      root.classList.add("dark")
+    } else {
+      root.classList.remove("dark")
     }
 
-    return { theme, toggleTheme}
+    localStorage.setItem("theme", theme)
+  }, [theme])
+
+  return {
+    theme,
+    toggleTheme: () =>
+      setTheme(prev => (prev === "dark" ? "light" : "dark"))
+  }
 }
