@@ -35,16 +35,14 @@ function App() {
   const { activeSectionId, visibleSections } = useSectionScrollState(sectionIds)
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-slate-950 text-slate-200">
       <Navbar
         items={sections.map(({ id, label }) => ({ id, label }))}
         activeSectionId={activeSectionId}
       />
 
       <main>
-        <Container className="mt-12">
-          <Hero />
-        </Container>
+        <Hero />
 
         {sections.map(({ key, id, Component }, index) => {
           const isVisible = visibleSections[id] ?? false
@@ -54,13 +52,13 @@ function App() {
             <section
               key={key}
               id={id}
-              className="scroll-mt-24 border-b border-slate-200 py-20 last:border-b-0"
+              className="scroll-mt-24 border-b border-slate-800/70 py-32 last:border-b-0"
             >
               <Container
                 className={`transform-gpu transition-[opacity,transform,filter] duration-700 ease-out motion-reduce:transform-none motion-reduce:opacity-100 motion-reduce:transition-none ${
                   isVisible
                     ? "translate-y-0 opacity-100 blur-0"
-                    : "translate-y-12 opacity-0 blur-[2px]"
+                    : "translate-y-14 opacity-0 blur-[2px]"
                 }`}
                 style={{ transitionDelay }}
               >

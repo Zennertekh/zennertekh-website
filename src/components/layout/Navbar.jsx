@@ -8,16 +8,16 @@ function Navbar({ items = [], activeSectionId = "" }) {
   const closeMenu = () => setIsMenuOpen(false)
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 border-b border-slate-700/40 bg-slate-900/60 backdrop-blur-xl shadow-lg shadow-black/40">
       <Container className="flex justify-between items-center h-16">
-        <a href="#hero" className="text-xl font-bold tracking-tight text-slate-900">
-          <span className="text-slate-950">Zenner</span>tekh
+        <a href="#hero" className="text-xl font-bold tracking-tight text-slate-200">
+          <span className="text-orange-700">Zenner</span>tekh
         </a>
 
         <button
           type="button"
           onClick={toggleMenu}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-300 text-slate-700 md:hidden"
+          className="flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700 bg-slate-900/40 text-slate-300 transition-colors hover:bg-slate-800 md:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
@@ -40,10 +40,10 @@ function Navbar({ items = [], activeSectionId = "" }) {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
-                className={`relative pb-1 text-sm font-medium transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:bg-slate-900 after:transition-transform after:duration-300 ${
+                className={`relative pb-1 text-sm font-medium transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:bg-orange-700 after:transition-transform after:duration-300 ${
                   activeSectionId === item.id
-                    ? "text-slate-950 after:scale-x-100"
-                    : "text-slate-700 hover:text-slate-950 after:scale-x-0"
+                    ? "text-slate-200 after:scale-x-100"
+                    : "text-slate-400 hover:text-slate-200 after:scale-x-0"
                 }`}
               >
                 {item.label}
@@ -55,7 +55,7 @@ function Navbar({ items = [], activeSectionId = "" }) {
 
       <div
         id="mobile-navigation"
-        className={`overflow-hidden border-t border-slate-200 transition-all duration-200 md:hidden ${
+        className={`overflow-hidden border-t border-slate-700/50 transition-all duration-200 md:hidden ${
           isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
@@ -68,8 +68,8 @@ function Navbar({ items = [], activeSectionId = "" }) {
                   onClick={closeMenu}
                   className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
                     activeSectionId === item.id
-                      ? "bg-slate-100 text-slate-950"
-                      : "text-slate-700 hover:bg-slate-100 hover:text-slate-950"
+                      ? "bg-slate-800 text-slate-200"
+                      : "text-slate-400 hover:bg-slate-800 hover:text-slate-200"
                   }`}
                 >
                   {item.label}

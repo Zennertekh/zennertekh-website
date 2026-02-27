@@ -1,89 +1,94 @@
-import { useState } from "react";
-
-
+import { useState } from "react"
 
 function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState('');
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
+  const [status, setStatus] = useState("")
 
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevents page reload
-    setStatus('Sending...');
+  const handleSubmit = async event => {
+    event.preventDefault()
+    setStatus("Sending...")
 
     try {
-      const response = await fetch(import.meta.env.VITE_API_URL, { 
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch(import.meta.env.VITE_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
-      });
-        
-      
-
+      })
 
       if (response.ok) {
-        setStatus('Message sent successfully!');
-        setFormData({ name: '', email: '', message: '' }); // Clear the form
+        setStatus("Message sent successfully.")
+        setFormData({ name: "", email: "", message: "" })
       } else {
-        setStatus('Failed to send message.');
+        setStatus("Failed to send message.")
       }
-    } catch (error) {
-      setStatus('Error connecting to the server.');
+    } catch {
+      setStatus("Error connecting to the server.")
     }
-  };
+  }
+
+  const setField = (name, value) => setFormData(previous => ({ ...previous, [name]: value }))
 
   return (
     <div className="grid gap-8 md:grid-cols-2">
       <div className="space-y-4">
-        <h2 className="text-3xl font-bold tracking-tight text-slate-900">Contact</h2>
-        <p className="text-base leading-relaxed text-slate-600">
-          Have a project in mind? Share a few details and let&apos;s build something practical and clean.
+        <h2 className="text-3xl font-bold tracking-tight text-slate-200">Contact</h2>
+        <p className="text-base leading-relaxed text-slate-400">
+          Have a project in mind? Share a few details and let&apos;s build something practical,
+          stable, and clean.
         </p>
-        {/* Status Message Display */}
         {status && (
-          <p className={`text-sm font-semibold ${status.includes('Error') || status.includes('Failed') ? 'text-red-500' : 'text-blue-600'}`}>
+          <p
+            className={`text-sm font-semibold ${
+              status.includes("Error") || status.includes("Failed")
+                ? "text-rose-400"
+                : "text-orange-400"
+            }`}
+          >
             {status}
           </p>
         )}
       </div>
 
-      {/* 1. Added onSubmit handler */}
-      <form onSubmit={handleSubmit} className="space-y-4 rounded-xl border border-slate-200 p-5 shadow-sm">
-        <label className="block text-sm font-medium text-slate-700">
+      <form
+        onSubmit={handleSubmit}
+        className="space-y-4 rounded-2xl border border-slate-700/40 bg-slate-900/60 p-6 backdrop-blur-sm shadow-lg shadow-black/30"
+      >
+        <label className="block text-sm font-medium text-slate-300">
           Name
           <input
             type="text"
             required
-            value={formData.name} // 2. Linked to state
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })} // 3. Updates state
-            className="mt-1 block w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none ring-0 focus:border-slate-500"
+            value={formData.name}
+            onChange={event => setField("name", event.target.value)}
+            className="mt-1 block w-full rounded-md border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-200 outline-none ring-0 placeholder:text-slate-500 focus:border-orange-700"
             placeholder="Your name"
           />
         </label>
-        <label className="block text-sm font-medium text-slate-700">
+        <label className="block text-sm font-medium text-slate-300">
           Email
           <input
             type="email"
             required
             value={formData.email}
-            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="mt-1 block w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none ring-0 focus:border-slate-500"
+            onChange={event => setField("email", event.target.value)}
+            className="mt-1 block w-full rounded-md border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-200 outline-none ring-0 placeholder:text-slate-500 focus:border-orange-700"
             placeholder="your@email.com"
           />
         </label>
-        <label className="block text-sm font-medium text-slate-700">
+        <label className="block text-sm font-medium text-slate-300">
           Message
           <textarea
             rows="4"
             required
             value={formData.message}
-            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="mt-1 block w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none ring-0 focus:border-slate-500"
+            onChange={event => setField("message", event.target.value)}
+            className="mt-1 block w-full rounded-md border border-slate-700 bg-slate-950/60 px-3 py-2 text-sm text-slate-200 outline-none ring-0 placeholder:text-slate-500 focus:border-orange-700"
             placeholder="Tell us about your project"
           />
         </label>
         <button
-          type="submit" // 4. Changed to "submit" to trigger onSubmit
-          className="w-full rounded-lg bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
+          type="submit"
+          className="w-full rounded-lg bg-orange-700 px-5 py-3 text-sm font-semibold text-slate-100 shadow-md shadow-orange-700/20 transition-colors hover:bg-orange-600"
         >
           Send Message
         </button>
@@ -92,4 +97,4 @@ function Contact() {
   )
 }
 
-export default Contact;
+export default Contact
