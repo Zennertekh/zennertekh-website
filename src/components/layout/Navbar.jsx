@@ -10,8 +10,8 @@ function Navbar({ items = [] }) {
   return (
     <nav className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur-md">
       <Container className="flex justify-between items-center h-16">
-        <a href="#hero" className="text-xl font-bold tracking-tight">
-          <span className="text-brand">Zenner</span>tekh
+        <a href="#hero" className="text-xl font-bold tracking-tight text-slate-900">
+          <span className="text-slate-950">Zenner</span>tekh
         </a>
 
         <button
