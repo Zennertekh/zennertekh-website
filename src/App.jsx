@@ -36,7 +36,7 @@ function App() {
         {sections.map(({ key, id, Component }) => (
           <section
             key={key}
-            id={id}a
+            id={id}
             className="scroll-mt-24 border-b border-slate-200 py-20 last:border-b-0"
           >
             <Container>
