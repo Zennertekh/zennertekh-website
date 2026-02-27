@@ -52,7 +52,9 @@ function App() {
             <section
               key={key}
               id={id}
-              className="scroll-mt-24 border-b border-slate-800/70 py-32 last:border-b-0"
+              className={`scroll-mt-24 border-b border-slate-800/70 last:border-b-0 ${
+                id === "services" ? "py-24" : "py-32"
+              }`}
             >
               <Container
                 className={`transform-gpu transition-[opacity,transform,filter] duration-700 ease-out motion-reduce:transform-none motion-reduce:opacity-100 motion-reduce:transition-none ${
