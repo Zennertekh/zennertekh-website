@@ -106,7 +106,7 @@ function Services() {
         className="rounded-2xl border border-slate-700/40 bg-slate-900/60 p-8 backdrop-blur-xl shadow-lg shadow-black/35 transition-all duration-300 hover:-translate-y-1 hover:bg-slate-900/80 hover:shadow-orange-600/10"
       >
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-          For The Non-Software
+          Optional Capability
         </p>
         <h3 className="mt-2 text-xl font-semibold text-slate-200">
           Electrical Infrastructure & Technical Services
