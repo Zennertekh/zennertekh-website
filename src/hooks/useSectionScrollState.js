@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react"
 
 function useSectionScrollState(sectionIds = []) {
   const [activeSectionId, setActiveSectionId] = useState(sectionIds[0] ?? "")
-  const [visibleSections, setVisibleSections] = useState({})
   const activeScoresRef = useRef({})
   const animationFrameRef = useRef(null)
 
@@ -18,31 +17,6 @@ function useSectionScrollState(sectionIds = []) {
     if (!sectionNodes.length) {
       return undefined
     }
-
-    const visibilityObserver = new IntersectionObserver(
-      entries => {
-        setVisibleSections(previousMap => {
-          let hasChanges = false
-          const nextMap = { ...previousMap }
-
-          entries.forEach(entry => {
-            const sectionId = entry.target.id
-            const nextVisibility = entry.isIntersecting
-
-            if (nextMap[sectionId] !== nextVisibility) {
-              nextMap[sectionId] = nextVisibility
-              hasChanges = true
-            }
-          })
-
-          return hasChanges ? nextMap : previousMap
-        })
-      },
-      {
-        threshold: 0.12,
-        rootMargin: "0px 0px -14% 0px",
-      },
-    )
 
     const activeObserver = new IntersectionObserver(
       entries => {
@@ -89,12 +63,10 @@ function useSectionScrollState(sectionIds = []) {
     )
 
     sectionNodes.forEach(sectionNode => {
-      visibilityObserver.observe(sectionNode)
       activeObserver.observe(sectionNode)
     })
 
     return () => {
-      visibilityObserver.disconnect()
       activeObserver.disconnect()
 
       if (animationFrameRef.current) {
@@ -103,12 +75,7 @@ function useSectionScrollState(sectionIds = []) {
     }
   }, [sectionIds])
 
-  const resolvedActiveSectionId = sectionIds.includes(activeSectionId) ? activeSectionId : sectionIds[0] ?? ""
-
-  return {
-    activeSectionId: resolvedActiveSectionId,
-    visibleSections,
-  }
+  return sectionIds.includes(activeSectionId) ? activeSectionId : sectionIds[0] ?? ""
 }
 
 export default useSectionScrollState

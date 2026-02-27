@@ -23,7 +23,7 @@ function Hero() {
 
       <Container>
         <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div className="space-y-7">
+          <div data-reveal="left" className="space-y-7" style={{ "--reveal-delay": "40ms" }}>
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
               Engineering-Led Digital Delivery
             </p>
@@ -50,7 +50,11 @@ function Hero() {
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-700/40 bg-slate-900/60 p-8 backdrop-blur-xl shadow-lg shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:bg-slate-900/80 hover:shadow-orange-600/10">
+          <div
+            data-reveal="right"
+            style={{ "--reveal-delay": "140ms" }}
+            className="rounded-3xl border border-slate-700/40 bg-slate-900/60 p-8 backdrop-blur-xl shadow-lg shadow-black/40 transition-all duration-300 hover:-translate-y-1 hover:bg-slate-900/80 hover:shadow-orange-600/10"
+          >
             <h2 className="mb-5 text-lg font-semibold text-slate-200">What We Deliver</h2>
             <ul className="space-y-3 text-sm text-slate-400 sm:text-base">
               {offerings.map(item => (

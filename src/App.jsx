@@ -3,6 +3,7 @@ import Navbar from "./components/layout/Navbar"
 import Hero from "./components/layout/Hero"
 import Container from "./components/ui/Container"
 import useSectionScrollState from "./hooks/useSectionScrollState"
+import useScrollReveal from "./hooks/useScrollReveal"
 
 const sectionModules = import.meta.glob("./sections/*.jsx", { eager: true })
 
@@ -30,45 +31,33 @@ const sections = Object.entries(sectionModules)
     return indexA - indexB
   })
 
+const sectionIds = sections.map(({ id }) => id)
+const sectionNavItems = sections.map(({ id, label }) => ({ id, label }))
+
 function App() {
-  const sectionIds = sections.map(({ id }) => id)
-  const { activeSectionId, visibleSections } = useSectionScrollState(sectionIds)
+  const activeSectionId = useSectionScrollState(sectionIds)
+  useScrollReveal()
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200">
-      <Navbar
-        items={sections.map(({ id, label }) => ({ id, label }))}
-        activeSectionId={activeSectionId}
-      />
+      <Navbar items={sectionNavItems} activeSectionId={activeSectionId} />
 
       <main>
         <Hero />
 
-        {sections.map(({ key, id, Component }, index) => {
-          const isVisible = visibleSections[id] ?? false
-          const transitionDelay = isVisible ? `${Math.min(index * 90, 320)}ms` : "0ms"
-
-          return (
-            <section
-              key={key}
-              id={id}
-              className={`scroll-mt-24 border-b border-slate-800/70 last:border-b-0 ${
-                id === "services" ? "py-24" : "py-32"
-              }`}
-            >
-              <Container
-                className={`transform-gpu transition-[opacity,transform,filter] duration-700 ease-out motion-reduce:transform-none motion-reduce:opacity-100 motion-reduce:transition-none ${
-                  isVisible
-                    ? "translate-y-0 opacity-100 blur-0"
-                    : "translate-y-14 opacity-0 blur-[2px]"
-                }`}
-                style={{ transitionDelay }}
-              >
-                {createElement(Component)}
-              </Container>
-            </section>
-          )
-        })}
+        {sections.map(({ key, id, Component }) => (
+          <section
+            key={key}
+            id={id}
+            className={`scroll-mt-24 border-b border-slate-800/70 last:border-b-0 ${
+              id === "services" ? "py-24" : "py-32"
+            }`}
+          >
+            <Container>
+              {createElement(Component)}
+            </Container>
+          </section>
+        ))}
       </main>
     </div>
   )

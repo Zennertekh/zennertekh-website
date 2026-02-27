@@ -13,15 +13,21 @@ const projects = [
   },
 ]
 
+const revealDirections = ["left", "up", "right"]
+
 function Projects() {
   return (
     <div className="space-y-8">
-      <h2 className="text-3xl font-bold tracking-tight text-slate-200">Projects</h2>
+      <h2 data-reveal="up" className="text-3xl font-bold tracking-tight text-slate-200">
+        Projects
+      </h2>
 
       <div className="grid gap-4 md:grid-cols-3">
-        {projects.map(project => (
+        {projects.map((project, index) => (
           <article
             key={project.name}
+            data-reveal={revealDirections[index % revealDirections.length]}
+            style={{ "--reveal-delay": `${50 + index * 70}ms` }}
             className="rounded-2xl border border-slate-700/40 bg-slate-900/60 p-6 backdrop-blur-sm shadow-lg shadow-black/30 transition-all duration-300 hover:-translate-y-1 hover:bg-slate-900/80 hover:shadow-orange-600/10"
           >
             <h3 className="mb-2 text-lg font-semibold text-slate-200">{project.name}</h3>

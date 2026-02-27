@@ -30,7 +30,7 @@ function Contact() {
 
   return (
     <div className="grid gap-8 md:grid-cols-2">
-      <div className="space-y-4">
+      <div data-reveal="left" className="space-y-4" style={{ "--reveal-delay": "20ms" }}>
         <h2 className="text-3xl font-bold tracking-tight text-slate-200">Contact</h2>
         <p className="text-base leading-relaxed text-slate-400">
           Have a project in mind? Share a few details and let&apos;s build something practical,
@@ -51,6 +51,8 @@ function Contact() {
 
       <form
         onSubmit={handleSubmit}
+        data-reveal="right"
+        style={{ "--reveal-delay": "120ms" }}
         className="space-y-4 rounded-2xl border border-slate-700/40 bg-slate-900/60 p-6 backdrop-blur-sm shadow-lg shadow-black/30"
       >
         <label className="block text-sm font-medium text-slate-300">

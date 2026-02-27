@@ -49,10 +49,12 @@ const services = [
   },
 ]
 
+const revealDirections = ["up", "left", "right", "up"]
+
 function Services() {
   return (
     <div className="space-y-10">
-      <header className="space-y-4">
+      <header data-reveal="up" className="space-y-4" style={{ "--reveal-delay": "20ms" }}>
         <h2 className="text-3xl font-bold tracking-tight text-slate-200">Our Services</h2>
         <p className="max-w-3xl text-base leading-relaxed text-slate-400">
           Engineering-focused solutions built for scalability, performance, and reliability.
@@ -60,9 +62,11 @@ function Services() {
       </header>
 
       <div className="grid gap-6 lg:grid-cols-2">
-        {services.map(service => (
+        {services.map((service, index) => (
           <article
             key={service.title}
+            data-reveal={revealDirections[index % revealDirections.length]}
+            style={{ "--reveal-delay": `${60 + index * 70}ms` }}
             className="relative overflow-hidden rounded-2xl border border-slate-700/40 bg-slate-900/60 p-8 backdrop-blur-xl shadow-lg shadow-black/35 transition-all duration-300 hover:-translate-y-1 hover:bg-slate-900/80 hover:shadow-orange-600/10"
           >
             <span className="absolute left-8 top-0 h-1 w-16 rounded-b-full bg-orange-700/80" />
@@ -96,9 +100,13 @@ function Services() {
         ))}
       </div>
 
-      <article className="rounded-2xl border border-slate-700/40 bg-slate-900/60 p-8 backdrop-blur-xl shadow-lg shadow-black/35 transition-all duration-300 hover:-translate-y-1 hover:bg-slate-900/80 hover:shadow-orange-600/10">
+      <article
+        data-reveal="up"
+        style={{ "--reveal-delay": "120ms" }}
+        className="rounded-2xl border border-slate-700/40 bg-slate-900/60 p-8 backdrop-blur-xl shadow-lg shadow-black/35 transition-all duration-300 hover:-translate-y-1 hover:bg-slate-900/80 hover:shadow-orange-600/10"
+      >
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-          Optional Capability
+          For The Non-Software
         </p>
         <h3 className="mt-2 text-xl font-semibold text-slate-200">
           Electrical Infrastructure & Technical Services

@@ -29,3 +29,53 @@ body {
 #root {
   min-height: 100vh;
 }
+
+[data-reveal] {
+  --reveal-x: 0px;
+  --reveal-y: 34px;
+  --reveal-delay: 0ms;
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+[data-reveal][data-reveal-ready="true"] {
+  opacity: 0;
+  transform: translate3d(var(--reveal-x), var(--reveal-y), 0);
+  transition-duration: 650ms;
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal="up"] {
+  --reveal-x: 0px;
+  --reveal-y: 34px;
+}
+
+[data-reveal="left"] {
+  --reveal-x: -42px;
+  --reveal-y: 0px;
+}
+
+[data-reveal="right"] {
+  --reveal-x: 42px;
+  --reveal-y: 0px;
+}
+
+[data-reveal][data-reveal-ready="true"][data-reveal-state="visible"] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  transition-delay: var(--reveal-delay);
+}
+
+[data-reveal][data-reveal-ready="true"][data-reveal-state="hidden"] {
+  opacity: 0;
+  transition-delay: 0ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

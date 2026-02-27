@@ -1,7 +1,7 @@
 function About() {
   return (
     <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-      <div className="space-y-6">
+      <div data-reveal="left" className="space-y-6" style={{ "--reveal-delay": "20ms" }}>
         <h2 className="text-3xl font-bold tracking-tight text-slate-200">About Zennertekh</h2>
         <p className="max-w-3xl text-base leading-relaxed text-slate-400">
           Zennertekh is an engineering partnership built at the intersection of hardware and
@@ -18,7 +18,11 @@ function About() {
         </p>
       </div>
 
-      <aside className="rounded-2xl border border-slate-700/40 bg-slate-900/60 p-7 backdrop-blur-xl shadow-lg shadow-black/35 transition-all duration-300 hover:-translate-y-1 hover:bg-slate-900/80 hover:shadow-orange-600/10">
+      <aside
+        data-reveal="right"
+        style={{ "--reveal-delay": "120ms" }}
+        className="rounded-2xl border border-slate-700/40 bg-slate-900/60 p-7 backdrop-blur-xl shadow-lg shadow-black/35 transition-all duration-300 hover:-translate-y-1 hover:bg-slate-900/80 hover:shadow-orange-600/10"
+      >
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Our Focus</p>
         <h3 className="mt-2 text-xl font-semibold text-slate-200">Core Capabilities</h3>
         <ul className="mt-5 space-y-3 text-sm text-slate-300">
