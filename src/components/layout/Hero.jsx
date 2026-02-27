@@ -1,9 +1,10 @@
 function Hero() {
   return (
+    <span id="hero">
     <div className="grid gap-10 md:grid-cols-2 md:items-center">
       <div className="space-y-5">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-          Single-Page Portfolio
+          100% Trust Score
         </p>
         <h1 className="text-4xl font-black tracking-tight text-slate-900 md:text-5xl">
           Build your digital presence with Zennertekh
@@ -37,6 +38,7 @@ function Hero() {
         </ul>
       </div>
     </div>
+    </span>
   )
 }
 

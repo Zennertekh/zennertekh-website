@@ -1,9 +1,10 @@
 import Navbar from "./components/layout/Navbar"
+import Hero from "./components/layout/Hero"
 import Container from "./components/ui/Container"
 
 const sectionModules = import.meta.glob("./sections/*.jsx", { eager: true })
 
-const sectionOrder = ["Hero", "About", "Services", "Projects", "Skills", "Contact"]
+const sectionOrder = ["About", "Services", "Projects", "Skills", "Contact"]
 
 const sections = Object.entries(sectionModules)
   .map(([filePath, module]) => {
@@ -33,6 +34,10 @@ function App() {
       <Navbar items={sections.map(({ id, label }) => ({ id, label }))} />
 
       <main>
+        <Container className="mt-12">
+          <Hero />
+        </Container>
+
         {sections.map(({ key, id, Component }) => (
           <section
             key={key}
@@ -40,6 +45,7 @@ function App() {
             className="scroll-mt-24 border-b border-slate-200 py-20 last:border-b-0"
           >
             <Container>
+               
               <Component />
             </Container>
           </section>
