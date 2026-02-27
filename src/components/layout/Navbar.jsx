@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Container from "../ui/Container"
 
-function Navbar({ items = [] }) {
+function Navbar({ items = [], activeSectionId = "" }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   const toggleMenu = () => setIsMenuOpen(prev => !prev)
@@ -40,7 +40,11 @@ function Navbar({ items = [] }) {
             <li key={item.id}>
               <a
                 href={`#${item.id}`}
-                className="text-sm font-medium text-slate-700 transition hover:text-slate-950"
+                className={`relative pb-1 text-sm font-medium transition-colors duration-300 after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-full after:origin-left after:bg-slate-900 after:transition-transform after:duration-300 ${
+                  activeSectionId === item.id
+                    ? "text-slate-950 after:scale-x-100"
+                    : "text-slate-700 hover:text-slate-950 after:scale-x-0"
+                }`}
               >
                 {item.label}
               </a>
@@ -62,7 +66,11 @@ function Navbar({ items = [] }) {
                 <a
                   href={`#${item.id}`}
                   onClick={closeMenu}
-                  className="block rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100 hover:text-slate-950"
+                  className={`block rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                    activeSectionId === item.id
+                      ? "bg-slate-100 text-slate-950"
+                      : "text-slate-700 hover:bg-slate-100 hover:text-slate-950"
+                  }`}
                 >
                   {item.label}
                 </a>

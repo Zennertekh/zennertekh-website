@@ -3,22 +3,21 @@ function Hero() {
     <span id="hero">
     <div className="grid gap-10 md:grid-cols-2 md:items-center">
       <div className="space-y-5">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
+        {/* <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
           100% Trust Score
-        </p>
+        </p> */}
         <h1 className="text-4xl font-black tracking-tight text-slate-900 md:text-5xl">
-          Build your digital presence with Zennertekh
+          Engineering Digital Systems That Perform.
         </h1>
         <p className="max-w-xl text-base leading-relaxed text-slate-600">
-          Clean interfaces, fast load times, and user-focused experiences for startups and growing
-          businesses.
+          Zennertekh builds fast, scalable, and maintainable web platforms powered by engineering precision.
         </p>
         <div className="flex flex-wrap gap-3">
           <a
             href="#projects"
             className="rounded-lg bg-slate-900 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-700"
           >
-            View Projects
+            Explore Projects
           </a>
           <a
             href="#contact"
@@ -30,11 +29,13 @@ function Hero() {
       </div>
 
       <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-        <h2 className="mb-4 text-lg font-bold text-slate-900">What You Get</h2>
+        <h2 className="mb-4 text-lg font-bold text-slate-900">What We Deliver</h2>
         <ul className="space-y-3 text-sm text-slate-700">
-          <li>Fast, responsive React frontends</li>
-          <li>Consistent design system and reusable components</li>
-          <li>SEO-friendly structure and modern tooling</li>
+          <li>High-performance Web applications</li>
+          <li>Scalable, reusable component systems</li>
+          <li>Clean architecture & maintainable code</li>
+          <li>Modern tooling & deployment readiness</li>
+          <li>Long-term maintainability</li>
         </ul>
       </div>
     </div>
