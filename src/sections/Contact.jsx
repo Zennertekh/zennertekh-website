@@ -9,17 +9,19 @@ function Contact() {
     setStatus("Sending...")
 
     try {
-      const response = await fetch(import.meta.env.VITE_API_URL, {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       })
 
+      const data = await response.json();
+
       if (response.ok) {
         setStatus("Message sent successfully.")
         setFormData({ name: "", email: "", message: "" })
       } else {
-        setStatus("Failed to send message.")
+        setStatus(data.message || "Failed to send message.")
       }
     } catch {
       setStatus("Error connecting to the server.")
