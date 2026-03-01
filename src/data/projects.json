@@ -1,36 +1,40 @@
 [
-  {
-    "id": "operations-control-suite",
-    "name": "Operations Control Suite",
-    "abstract": "Unified dashboard for monitoring KPIs, stock movement, and dispatch performance in real time.",
-    "description": "A role-aware platform that centralizes live business data, automates alert routing, and streamlines daily operations with clear visibility across teams.",
-    "liveUrl": "https://example.com/projects/operations-control-suite",
-    "image": "https://placehold.co/960x540/0f172a/e2e8f0?text=Operations+Control+Suite"
+    {
+    "id": "logistics-tracking-portal",
+    "name": "Logistics Tracking Portal",
+    "abstract": "Shipment visibility interface with milestone timelines, route health signals, and delivery analytics.",
+    "description": "Built a tracking portal that combines status events, location summaries, and operational metrics into one workflow, reducing manual status follow-ups and late delivery surprises.",
+    "liveUrl": "https://pastpaper-ai.vercel.app/",
+    "image": "/past-paperai.png"
   },
+
   {
     "id": "portfolio-commerce-platform",
     "name": "Portfolio Commerce Platform",
     "abstract": "Modern product showcase with fast navigation, conversion-focused layouts, and reusable content blocks.",
     "description": "Designed and shipped a scalable frontend architecture with flexible section modules, optimized loading performance, and cleaner publishing workflows for frequent updates.",
-    "liveUrl": "https://example.com/projects/portfolio-commerce-platform",
-    "image": "https://placehold.co/960x540/0f172a/e2e8f0?text=Portfolio+Commerce+Platform"
+    "liveUrl": "https://kelectrical.vercel.app/",
+    "image": "/katoya-electrical.png"
   },
-  {
-    "id": "logistics-tracking-portal",
-    "name": "Logistics Tracking Portal",
-    "abstract": "Shipment visibility interface with milestone timelines, route health signals, and delivery analytics.",
-    "description": "Built a tracking portal that combines status events, location summaries, and operational metrics into one workflow, reducing manual status follow-ups and late delivery surprises.",
-    "liveUrl": "https://example.com/projects/logistics-tracking-portal",
-    "image": "https://placehold.co/960x540/0f172a/e2e8f0?text=Logistics+Tracking+Portal"
-  },
+
   {
     "id": "field-service-workbench",
     "name": "Field Service Workbench",
     "abstract": "Technician scheduling and job orchestration workspace built for high-volume service teams.",
     "description": "Delivered a structured workbench with assignment queues, SLA tracking, and reporting views to improve technician utilization and service turnaround time.",
-    "liveUrl": "https://example.com/projects/field-service-workbench",
-    "image": "https://placehold.co/960x540/0f172a/e2e8f0?text=Field+Service+Workbench"
+    "liveUrl": "https://williamskaphika.vercel.app/",
+    "image": "/williams-blog.png"
   },
+
+  {
+    "id": "operations-control-suite",
+    "name": "Operations Control Suite",
+    "abstract": "Unified dashboard for monitoring KPIs, stock movement, and dispatch performance in real time.",
+    "description": "A role-aware platform that centralizes live business data, automates alert routing, and streamlines daily operations with clear visibility across teams.",
+    "liveUrl": "https://activitflow.vercel.app/",
+    "image": "/activity-flow.png"
+  },
+  
   {
     "id": "finance-insight-console",
     "name": "Finance Insight Console",
@@ -41,10 +45,10 @@
   },
   {
     "id": "client-success-hub",
-    "name": "Client Success Hub",
-    "abstract": "Customer lifecycle platform for onboarding progress, account health, and renewal readiness.",
+    "name": "Custom Made BirthDay App",
+    "abstract": "Custom made app specifically designed to accomodate a specific user's recomendation",
     "description": "Created an end-to-end client operations view with milestone automation, risk indicators, and intervention workflows that strengthened retention and support efficiency.",
-    "liveUrl": "https://example.com/projects/client-success-hub",
-    "image": "https://placehold.co/960x540/0f172a/e2e8f0?text=Client+Success+Hub"
+    "liveUrl": "https://tiffany-birthday-app.vercel.app/",
+    "image": "ttttttt.png"
   }
 ]
