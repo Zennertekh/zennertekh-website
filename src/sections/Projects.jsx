@@ -13,56 +13,72 @@ function Projects() {
       </header>
 
       <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {projects.map((project, index) => (
-          <article
-            key={project.id}
-            data-reveal={revealDirections[index % revealDirections.length]}
-            style={{ "--reveal-delay": `${60 + index * 70}ms` }}
-            className="project-flip-card h-[30rem] rounded-2xl border border-slate-700/40 bg-slate-900/60 backdrop-blur-xl shadow-lg shadow-black/35 transition-all duration-300 hover:-translate-y-1 hover:bg-slate-900/80 hover:shadow-orange-600/10 focus-visible:shadow-orange-600/30"
-            tabIndex={0}
-            aria-label={`${project.name} project card`}
-          >
-            <div className="project-flip-card-inner">
-              <div className="project-flip-face project-flip-face-front p-5">
-                <div className="relative overflow-hidden rounded-xl border border-slate-700/50">
-                  <img
-                    src={project.image}
-                    alt={`${project.name} preview`}
-                    loading="lazy"
-                    className="h-52 w-full object-cover"
-                  />
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/20 to-transparent" />
-                </div>
+        {projects.map((project, index) => {
+          const isPrivateProject = project.isPrivate || project.visibility === "private"
+          const hasPublicLink = Boolean(project.liveUrl) && !isPrivateProject
 
-                <div className="mt-5 space-y-2">
-                  <h3 className="text-lg font-semibold text-slate-200">{project.name}</h3>
-                  <p className="text-sm leading-relaxed text-slate-400">{project.abstract}</p>
-                </div>
-              </div>
-
-              <div className="project-flip-face project-flip-face-back p-6">
-                <div className="flex h-full flex-col justify-between">
-                  <div className="space-y-4">
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
-                      Full Overview
-                    </p>
-                    <h3 className="text-xl font-semibold text-slate-200">{project.name}</h3>
-                    <p className="text-sm leading-relaxed text-slate-400">{project.description}</p>
+          return (
+            <article
+              key={project.id}
+              data-reveal={revealDirections[index % revealDirections.length]}
+              style={{ "--reveal-delay": `${60 + index * 70}ms` }}
+              className="project-flip-card h-[30rem] rounded-2xl border border-slate-700/40 bg-slate-900/60 backdrop-blur-xl shadow-lg shadow-black/35 transition-all duration-300 hover:-translate-y-1 hover:bg-slate-900/80 hover:shadow-orange-600/10 focus-visible:shadow-orange-600/30"
+              tabIndex={0}
+              aria-label={`${project.name} project card`}
+            >
+              <div className="project-flip-card-inner">
+                <div className="project-flip-face project-flip-face-front p-5">
+                  <div className="relative overflow-hidden rounded-xl border border-slate-700/50">
+                    {isPrivateProject && (
+                      <span className="absolute right-3 top-3 z-10 rounded-full border border-orange-700/40 bg-slate-950/75 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-orange-400">
+                        Private
+                      </span>
+                    )}
+                    <img
+                      src={project.image}
+                      alt={`${project.name} preview`}
+                      loading="lazy"
+                      className="h-52 w-full object-cover"
+                    />
+                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/60 via-slate-950/20 to-transparent" />
                   </div>
 
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-orange-700 px-4 py-3 text-sm font-semibold text-slate-100 shadow-md shadow-orange-700/20 transition-colors hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/70"
-                  >
-                    View Live Project
-                  </a>
+                  <div className="mt-5 space-y-2">
+                    <h3 className="text-lg font-semibold text-slate-200">{project.name}</h3>
+                    <p className="text-sm leading-relaxed text-slate-400">{project.abstract}</p>
+                  </div>
+                </div>
+
+                <div className="project-flip-face project-flip-face-back p-6">
+                  <div className="flex h-full flex-col justify-between">
+                    <div className="space-y-4">
+                      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+                        Full Overview
+                      </p>
+                      <h3 className="text-xl font-semibold text-slate-200">{project.name}</h3>
+                      <p className="text-sm leading-relaxed text-slate-400">{project.description}</p>
+                    </div>
+
+                    {hasPublicLink ? (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-orange-700 px-4 py-3 text-sm font-semibold text-slate-100 shadow-md shadow-orange-700/20 transition-colors hover:bg-orange-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500/70"
+                      >
+                        View Live Project
+                      </a>
+                    ) : (
+                      <p className="mt-6 rounded-lg border border-slate-700/60 bg-slate-950/50 px-4 py-3 text-center text-sm font-medium text-slate-400">
+                        Live link is private
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          </article>
-        ))}
+            </article>
+          )
+        })}
       </div>
     </div>
   )
