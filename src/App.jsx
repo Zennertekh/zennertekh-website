@@ -1,6 +1,7 @@
 import { createElement } from "react"
 import Navbar from "./components/layout/Navbar"
 import Hero from "./components/layout/Hero"
+import Footer from "./components/layout/Footer"
 import Container from "./components/ui/Container"
 import useSectionScrollState from "./hooks/useSectionScrollState"
 import useScrollReveal from "./hooks/useScrollReveal"
@@ -59,6 +60,8 @@ function App() {
           </section>
         ))}
       </main>
+
+      <Footer items={sectionNavItems} />
     </div>
   )
 }
