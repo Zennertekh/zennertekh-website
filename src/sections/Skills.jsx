@@ -63,7 +63,7 @@ function Skills() {
           Technical Expertise
         </h2>
         <p data-reveal="up" className="max-w-3xl text-slate-400">
-          A comprehensive overview of my tools and technologies, ranging from system-level programming 
+          A comprehensive overview of some of our tools and technologies, ranging from system-level programming 
           to modern cloud infrastructure and mobile development.
         </p>
       </div>
