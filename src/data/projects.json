@@ -1,53 +1,53 @@
 [
     {
-    "id": "logistics-tracking-portal",
-    "name": "Logistics Tracking Portal",
-    "abstract": "Shipment visibility interface with milestone timelines, route health signals, and delivery analytics.",
-    "description": "Built a tracking portal that combines status events, location summaries, and operational metrics into one workflow, reducing manual status follow-ups and late delivery surprises.",
+    "id": "pastpaper-ai",
+    "name": "Pastpaper AI - WebApp",
+    "abstract": "Transforming exam preparation with AI-powered past paper analysis. A PWA powered Exam preparation app",
+    "description": "Pastpaper.AI was born from a simple observation: students spend countless hours studying, but often without direction. We asked ourselves, 'What if AI could analyze years of past exam papers and tell students exactly what topics are most likely to appear?' That question led us to build the intelligent study companion that students can rely on for their exam preparation.",
     "liveUrl": "https://pastpaper-ai.vercel.app/",
     "image": "/past-paperai.png"
   },
 
   {
-    "id": "portfolio-commerce-platform",
-    "name": "Portfolio Commerce Platform",
-    "abstract": "Modern product showcase with fast navigation, conversion-focused layouts, and reusable content blocks.",
-    "description": "Designed and shipped a scalable frontend architecture with flexible section modules, optimized loading performance, and cleaner publishing workflows for frequent updates.",
+    "id": "katoya-electrical",
+    "name": "K Electrical - Website",
+    "abstract": "A modern website for an electrical and electronics engineering company for a client done and delivered.",
+    "description": "The client wanted an online presence, that will make their clients be able to acccess them and have a look of their services on the fly. We made the website easy to navigate, access services, book a service, ask for a quaotation, and be answered instantly through an automated emailing system. We added a dashboard where the client would be able to access the reviews from clients, manage sent bookings, and answer quoatation related emails right in their dashboard.",
     "liveUrl": "https://kelectrical.vercel.app/",
     "image": "/katoya-electrical.png"
   },
 
   {
-    "id": "field-service-workbench",
-    "name": "Field Service Workbench",
-    "abstract": "Technician scheduling and job orchestration workspace built for high-volume service teams.",
-    "description": "Delivered a structured workbench with assignment queues, SLA tracking, and reporting views to improve technician utilization and service turnaround time.",
+    "id": "williams-kaphika",
+    "name": "Williams Kaphika - The Pysics Paradox Blog - Website",
+    "abstract": "A blogging site for Williams Kaphika of The Physics Paradox, where he shares his insights on education, health, technology and science",
+    "description": "Williams Kaphika is an educator, researcher and a blogger, so when he asked to work on his blogging website from scratch, to replace his wordpress powered one we took the task and delivered. The blog has a dashboard for managing posts, adding posts, managing subscribers overall manage the site's perfomance and analytics.",
     "liveUrl": "https://williamskaphika.vercel.app/",
     "image": "/williams-blog.png"
   },
 
   {
-    "id": "operations-control-suite",
-    "name": "Operations Control Suite",
-    "abstract": "Unified dashboard for monitoring KPIs, stock movement, and dispatch performance in real time.",
-    "description": "A role-aware platform that centralizes live business data, automates alert routing, and streamlines daily operations with clear visibility across teams.",
+    "id": "activity-flow",
+    "name": "Activit Flow - WebApp",
+    "abstract": "A client and activity tracking and management webapp.",
+    "description": "Through the combination of Google's Firebase and vercels incredible technology this webapp makes managing day to day activities seam a bliss. Targeted for the busy and forgetful working class people and tired students to manage their, clients, meetings, classes, exams and any day to day activities. Who wants to keep track of things in their head when tech can do it easily, and remind you in an instant. Activity flow is your cheap personal assistant",
     "liveUrl": "https://activitflow.vercel.app/",
     "image": "/activity-flow.png"
   },
   
   {
-    "id": "finance-insight-console",
-    "name": "Finance Insight Console",
-    "abstract": "Financial overview suite turning fragmented spreadsheets into concise decision-ready reporting.",
-    "description": "Implemented a data-driven interface for budget tracking, variance analysis, and trend snapshots, making monthly reporting faster and easier for leadership teams.",
-    "liveUrl": "https://example.com/projects/finance-insight-console",
-    "image": "https://placehold.co/960x540/0f172a/e2e8f0?text=Finance+Insight+Console"
+    "id": "weight-less",
+    "name": "Weightless - Fitness Tracker - WebApp",
+    "abstract": "A webapp for tracking weight loss and fitness of people. With realtime steps counter.",
+    "description": "Weightless is a simple but intuitive fitness tracking PWA powered app that offers realtime steps counter, weight loss predictions based on recent activities, analytics, an automated BMI calculator, notification reminders, simple to manage and get started, no bloat but just the tools to get you ready for your next weight loss adventure. With industry standard technology under the hood weightless is engineered for accuracy and precision.",
+    "liveUrl": "https://2kay-kat.github.io/fitness-tracker/",
+    "image": "weightless.png"
   },
   {
-    "id": "client-success-hub",
+    "id": "tiff-birthday-app",
     "name": "Custom Made BirthDay App",
-    "abstract": "Custom made app specifically designed to accomodate a specific user's recomendation",
-    "description": "Created an end-to-end client operations view with milestone automation, risk indicators, and intervention workflows that strengthened retention and support efficiency.",
+    "abstract": "A birthday app for a girl's birhday custom made per the client's recommendations delivered.",
+    "description": "The Client's idea for the app; was simple, make it memorable and gamified but less clunky, simple and classy and should work as inteded and the app was made with that in mind and the client was happy on how it turned out.",
     "liveUrl": "https://tiffany-birthday-app.vercel.app/",
     "image": "ttttttt.png"
   }
