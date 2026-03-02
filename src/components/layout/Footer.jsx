@@ -3,7 +3,10 @@ import Container from "../ui/Container"
 const socialLinks = [
   {
     name: "GitHub",
-    href: "https://github.com/enterprises/zennertehk",
+    profiles: [
+      { name: "2KAY - Kelvin Katoya", href: "https://github.com/2kay-kat" },
+      { name: "GPH - George Hussein", href: "https://github.com/lazoramorie" },
+    ],
     icon: (
       <path
         d="M12 2C6.48 2 2 6.58 2 12.24c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49
@@ -19,7 +22,10 @@ const socialLinks = [
   },
   {
     name: "Instagram",
-    href: "https://instagram.com",
+    profiles: [
+      { name: "2KAY - Kelvin Katoya", href: "https://instagram.com/kat.kay2" },
+      { name: "GPH - George Hussein", href: "https://www.instagram.com/georgie__hussein" },
+    ],
     icon: (
       <path
         d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2
@@ -32,7 +38,10 @@ const socialLinks = [
   },
   {
     name: "Twitter",
-    href: "https://x.com/",
+    profiles: [
+      { name: "2KAY - Kelvin Katoya", href: "https://x.com/@Katoyakelvin" },
+      // { name: "GPH - George Hussein", href: "https://x.com/team_member_2" },
+    ],
     icon: (
       <path
         d="m18.9 2h3.07l-6.7 7.65L23 22h-6.07l-4.75-6.2L6.77 22H3.7l7.17-8.2L1 2h6.22l4.3
@@ -43,7 +52,10 @@ const socialLinks = [
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com",
+    profiles: [
+      { name: "2KAY - Kelvin Katoya", href: "https://linkedin.com/in/kelvin-katoya-570537310" },
+      { name: "GPH - George Hussein", href: "https://linkedin.com/in/george-hussein-9360583a0" },
+    ],
     icon: (
       <path
         d="M4.98 3.5a2.48 2.48 0 1 1-.01 4.97 2.48 2.48 0 0 1 .01-4.97ZM2.5 9h5v12.5h-5V9Zm8
@@ -55,7 +67,10 @@ const socialLinks = [
   },
   {
     name: "Facebook",
-    href: "https://facebook.com",
+    profiles: [
+      // { name: "2KAY - Kelvin Katoya", href: "https://facebook.com/team.member.1" },
+      { name: "GPH - George Hussein", href: "https://facebook.com/george.hussein.376" },
+    ],
     icon: (
       <path
         d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.86.25-1.45 1.48-1.45h1.58V5.03c-.27-.04-1.2-.11-2.28-.11
@@ -119,22 +134,37 @@ function Footer({ items = [] }) {
               </p>
               <ul className="flex flex-wrap gap-3 lg:justify-end">
                 {socialLinks.map(link => (
-                  <li key={link.name}>
-                    <a
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={link.name}
-                      className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-slate-700/80 bg-slate-900/60 text-slate-400 transition-colors hover:border-orange-600/70 hover:text-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-600/70"
+                  <li key={link.name} className="group relative">
+                    <button
+                      type="button"
+                      aria-label={`${link.name} profiles`}
+                      aria-haspopup="true"
+                      className="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg border border-slate-700/80 bg-slate-900/60 text-slate-400 transition-colors hover:border-orange-600/70 hover:text-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-600/70"
                     >
-                      <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        className="h-4 w-4"
-                      >
+                      <svg viewBox="0 0 24 24" aria-hidden="true" className="h-4 w-4">
                         {link.icon}
                       </svg>
-                    </a>
+                    </button>
+
+                    <div className="pointer-events-none absolute bottom-full right-0 z-20 mb-2 w-44 translate-y-2 rounded-xl border border-slate-700/80 bg-slate-900/95 p-2 opacity-0 shadow-xl shadow-black/40 transition-all duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                      <p className="px-2 pb-1 text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-500">
+                        {link.name}
+                      </p>
+                      <ul className="space-y-1">
+                        {link.profiles.map(profile => (
+                          <li key={profile.name}>
+                            <a
+                              href={profile.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block rounded-md px-2 py-1.5 text-sm text-slate-300 transition-colors hover:bg-slate-800/80 hover:text-orange-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-600/70"
+                            >
+                              {profile.name}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </li>
                 ))}
               </ul>
